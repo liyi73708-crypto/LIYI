@@ -9,3 +9,8 @@
 .resume-lines div{display:flex;gap:18px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.1);align-items:baseline}
 .resume-lines span{width:70px;font:9px 'DM Mono',monospace;letter-spacing:.12em;color:var(--blue)}
 .resume-lines strong{font-size:12px;font-weight:500;color:#dfe6ef}
+/* Navigation */
+.nav-center{display:flex;align-items:center;gap:28px}
+.nav-center a{color:#aeb4c0;transition:color .2s}
+.nav-center a:hover{color:var(--blue)}
+@media (max-width:900px){.nav-center{display:none}}

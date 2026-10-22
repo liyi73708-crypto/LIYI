@@ -31,7 +31,7 @@ function App() {
         <div className="hero-glow" />
         <header className="nav shell">
           <a className="brand" href="#top"><span className="brand-mark">✦</span><span>李一 / 01<br /><em>AIGC DIRECTOR</em></span></a>
-          <div className="nav-center">AIGC DIRECTOR <span>·</span> CONTENT OPERATOR</div>
+          <nav className="nav-center" aria-label="主导航"><a href="#top">首页</a><a href="#about">关于我</a><a href="#projects">精选作品</a><a href="#strengths">能力</a></nav>
           <button className="nav-cta" onClick={() => scrollTo('contact')}>联系我 <Arrow /></button>
         </header>
         <div className="hero-content shell">
