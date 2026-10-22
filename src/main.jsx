@@ -30,7 +30,7 @@ function App() {
         </div>
         <div className="hero-glow" />
         <header className="nav shell">
-          <a className="brand" href="#top"><span className="brand-mark">✦</span><span>LIN / 01<br /><em>AIGC STUDIO</em></span></a>
+          <a className="brand" href="#top"><span className="brand-mark">✦</span><span>李一 / 01<br /><em>AIGC DIRECTOR</em></span></a>
           <div className="nav-center">AIGC DIRECTOR <span>·</span> CONTENT OPERATOR</div>
           <button className="nav-cta" onClick={() => scrollTo('contact')}>联系我 <Arrow /></button>
         </header>
@@ -49,8 +49,8 @@ function App() {
       <section className="intro section shell" id="about">
         <div className="section-label">01 / ABOUT ME</div>
         <div className="intro-grid">
-          <div className="portrait-wrap"><div className="portrait"><div className="portrait-orbit" /><div className="portrait-initial">L<span>.</span></div><span className="portrait-note">CREATIVE<br />MIND / 2026</span></div></div>
-          <div className="intro-copy"><p className="kicker">HELLO, I'M LIN YI</p><h2>内容不是<br /><span>填空题。</span></h2><p className="body-copy">我是林一，一名 AIGC 编导与运营。我的工作，是在技术快速变化的时代里，找到人与内容之间仍然有效的情绪连接。</p><p className="body-copy muted">我相信每一个项目都应该有自己的气质。少一点模板，多一点真实的好奇心。</p><a className="text-link" href="mailto:hello@linstudio.ai">hello@linstudio.ai <Arrow /></a></div>
+          <div className="portrait-wrap"><div className="portrait"><div className="portrait-orbit" /><div className="portrait-initial">李<span>一</span></div><span className="portrait-note">LI YI<br />AIGC / 2026</span><span className="portrait-placeholder">头像待替换</span></div></div>
+          <div className="intro-copy"><p className="kicker">HELLO, I'M LI YI</p><h2>内容不是<br /><span>填空题。</span></h2><p className="body-copy">我是李一，一名 AIGC 编导与运营。我负责把创意变成有画面、有情绪、能持续传播的内容。</p><p className="body-copy muted">从前期策略、脚本分镜，到 AI 视觉生成、发布运营，我习惯把一个项目从想法推进到结果。</p><div className="resume-lines"><div><span>ROLE</span><strong>AIGC 编导 / AIGC 运营</strong></div><div><span>FOCUS</span><strong>AI 影像 · 内容策略 · 社媒增长</strong></div><div><span>LOCATION</span><strong>北京 / 上海 · 可远程合作</strong></div></div><a className="text-link" href="mailto:hello@linstudio.ai">hello@linstudio.ai <Arrow /></a></div>
           <div className="stats"><div><strong>06</strong><span>YEARS<br />EXPERIENCE</span></div><div><strong>48</strong><span>PROJECTS<br />DELIVERED</span></div><div><strong>13</strong><span>BRANDS<br />PARTNERED</span></div></div>
         </div>
       </section>
