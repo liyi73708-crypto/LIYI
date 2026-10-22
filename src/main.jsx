@@ -3,9 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './styles.css'
 
 const projects = [
-  { no: '01', tag: 'AI FILM / BRAND', title: '夜航计划', desc: '为新消费品牌构建一支 60 秒 AI 叙事短片。', tone: 'violet', metric: '8.4M 播放' },
-  { no: '02', tag: 'CONTENT SYSTEM', title: '城市漫游者', desc: '从栏目定位到日更运营，建立可持续的内容引擎。', tone: 'blue', metric: '32% 转化提升' },
-  { no: '03', tag: 'SOCIAL CAMPAIGN', title: '未来有光', desc: '一次把视觉、话题与社区情绪串联起来的传播实验。', tone: 'orange', metric: '142K 社媒互动' },
+  { no: '01', tag: 'CNC / FOXCONN', title: '精密加工实习', desc: '参与 CNC 加工中心运行、工件装夹、刀具补偿与产品首检。', tone: 'violet', metric: '合格率 99.5%+' },
+  { no: '02', tag: 'SERVICE / HOTEL', title: '现场服务实践', desc: '负责五星级酒店政务接待与大型宴会现场服务，处理突发需求。', tone: 'blue', metric: '表扬信 3 封' },
+  { no: '03', tag: 'AIGC PORTFOLIO', title: '视频作品待补充', desc: '简历中暂未提供视频文件，后续可替换为你的 AIGC 作品。', tone: 'orange', metric: '待上传' },
 ]
 
 const strengths = [
@@ -49,9 +49,9 @@ function App() {
       <section className="intro section shell" id="about">
         <div className="section-label">01 / ABOUT ME</div>
         <div className="intro-grid">
-          <div className="portrait-wrap"><div className="portrait"><div className="portrait-orbit" /><div className="portrait-initial">李<span>一</span></div><span className="portrait-note">LI YI<br />AIGC / 2026</span><span className="portrait-placeholder">头像待替换</span></div></div>
-          <div className="intro-copy"><p className="kicker">HELLO, I'M LI YI</p><h2>内容不是<br /><span>填空题。</span></h2><p className="body-copy">我是李一，一名 AIGC 编导与运营。我负责把创意变成有画面、有情绪、能持续传播的内容。</p><p className="body-copy muted">从前期策略、脚本分镜，到 AI 视觉生成、发布运营，我习惯把一个项目从想法推进到结果。</p><div className="resume-lines"><div><span>ROLE</span><strong>AIGC 编导 / AIGC 运营</strong></div><div><span>FOCUS</span><strong>AI 影像 · 内容策略 · 社媒增长</strong></div><div><span>LOCATION</span><strong>北京 / 上海 · 可远程合作</strong></div></div><a className="text-link" href="mailto:hello@linstudio.ai">hello@linstudio.ai <Arrow /></a></div>
-          <div className="stats"><div><strong>06</strong><span>YEARS<br />EXPERIENCE</span></div><div><strong>48</strong><span>PROJECTS<br />DELIVERED</span></div><div><strong>13</strong><span>BRANDS<br />PARTNERED</span></div></div>
+          <div className="portrait-wrap"><div className="portrait"><div className="portrait-orbit" /><img className="portrait-photo" src="/avatar.png" alt="李一证件照" /><span className="portrait-note">LI YI<br />AIGC / 2026</span></div></div>
+          <div className="intro-copy"><p className="kicker">HELLO, I'M LI YI</p><h2>把经历<br /><span>变成作品。</span></h2><p className="body-copy">我是李一，AIGC 编导与运营方向的应届毕业生，拥有机电一体化专科与电气工程及其自动化本科教育背景。</p><p className="body-copy muted">我也有富士康 CNC 数控加工和五星级酒店服务实践，形成了细致执行、现场协作与快速应变的工作方式。</p><div className="resume-lines"><div><span>EDUCATION</span><strong>电气工程及其自动化 · 本科</strong></div><div><span>EXPERIENCE</span><strong>富士康 CNC / 三鼎华悦酒店</strong></div><div><span>CERTIFICATES</span><strong>英语四级 · 机动车驾驶证</strong></div></div><a className="text-link" href="mailto:1269930639@qq.com">1269930639@qq.com <Arrow /></a></div>
+          <div className="stats"><div><strong>2</strong><span>EDUCATION<br />STAGES</span></div><div><strong>2</strong><span>WORK<br />EXPERIENCES</span></div><div><strong>99.5%</strong><span>CNC<br />QUALITY</span></div></div>
         </div>
       </section>
 
