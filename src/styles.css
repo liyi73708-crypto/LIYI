@@ -19,4 +19,5 @@
 @media(max-width:800px){.contact-inner h2:after{font-size:16vw}}
 .contact-inner h2:after{font-weight:700;letter-spacing:-.04em;line-height:1.05}
 @media(max-width:800px){.contact-inner h2:after{font-size:13vw;letter-spacing:-.03em;line-height:1.08}}
-.hero-person{content:url('/hero-person.png');filter:drop-shadow(0 20px 45px rgba(0,0,0,.55)) drop-shadow(0 0 20px rgba(92,154,255,.22));}
+.hero-person{content:url('/hero-person.png');width:min(25vw,380px);filter:drop-shadow(0 20px 45px rgba(0,0,0,.55)) drop-shadow(0 0 20px rgba(92,154,255,.22));}
+@media(max-width:800px){.hero-person{width:min(62vw,340px)}}
