@@ -5,3 +5,5 @@
 .hero-center h1{font-size:clamp(52px,7vw,112px);font-weight:700;letter-spacing:-.04em}
 .hero-center{top:26%}
 @media(max-width:800px){.hero-center{top:23%}.hero-center h1{font-size:clamp(44px,12vw,78px)}}
+.hero-center{top:12%}
+@media(max-width:800px){.hero-center{top:15%}}
