@@ -12,3 +12,8 @@
 .projects-head h2{font-size:0}.projects-head h2:after{content:'精选项目';font-size:clamp(72px,12vw,160px)}
 .projects-head p{font-size:0}.projects-head p:after{content:'精选方向\A与视觉实验。';white-space:pre;font-size:18px;line-height:1.3;color:var(--muted)}
 @media(max-width:800px){.about-inner h2:after{font-size:clamp(64px,12vw,110px)}.services>h2:after,.projects-head h2:after{font-size:clamp(64px,14vw,110px)}.projects-head p:after{font-size:16px}}
+.contact-inner>p{font-size:0}.contact-inner>p:after{content:'有一个好想法？';font-size:13px}
+.contact-inner h2{font-size:0}.contact-inner h2:after{content:'一起做点\A真正的作品。';white-space:pre;display:block;font-size:clamp(68px,11vw,170px);line-height:.82;letter-spacing:-.1em;background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.contact footer span:first-child{font-size:0}.contact footer span:first-child:after{content:'李一 / AIGC 编导';font-size:10px}
+.contact footer span:last-child{font-size:0}.contact footer span:last-child:after{content:'中国 / 全球合作';font-size:10px}
+@media(max-width:800px){.contact-inner h2:after{font-size:16vw}}
