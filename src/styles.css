@@ -35,3 +35,8 @@
 .about-copy p{font-size:clamp(16px,1.7vw,23px);line-height:1.7}
 .about-meta{display:flex;gap:28px;flex-wrap:wrap;color:var(--muted);font-size:12px;letter-spacing:.08em}
 @media(max-width:800px){.about-profile{grid-template-columns:1fr;gap:32px}.about-photo{max-width:280px;margin:auto}.about-copy{text-align:left}.about-meta{gap:12px;flex-direction:column}}
+.contact{align-items:flex-start;padding-top:13vh}
+.contact-inner h2{font-size:clamp(48px,7vw,112px);line-height:1;max-width:900px;margin:18px 0 38px}
+.contact-details{display:flex;align-items:center;gap:28px;flex-wrap:wrap;min-height:90px;color:var(--muted);font-size:13px;letter-spacing:.08em}
+.contact-details .contact-email{color:var(--ink);font-size:16px}
+@media(max-width:800px){.contact{padding-top:11vh}.contact-inner h2{font-size:14vw}.contact-details{align-items:flex-start;flex-direction:column;gap:16px}}

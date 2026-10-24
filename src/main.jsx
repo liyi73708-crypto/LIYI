@@ -39,7 +39,7 @@ function App() {
 
     <section className="projects" id="projects"><div className="projects-head"><h2 className="hero-heading">Projects</h2><p>Selected directions<br />and visual experiments.</p></div><div className="project-stack">{projects.map((project, index) => <article className="project-card" style={{ top: `${96 + index * 28}px`, transform: `scale(${1 - index * .025})` }} key={project.no}><div className="project-head"><strong>{project.no}</strong><span>{project.category}</span><h3>{project.title}</h3><a href="#contact">Live project ↗</a></div><div className="project-images"><div><img src={project.images[0]} alt="" /><img src={project.images[1]} alt="" /></div><img src={project.images[2]} alt="" /></div><p className="project-copy">{project.copy}</p></article>)}</div></section>
 
-    <section className="contact" id="contact"><div className="contact-inner"><p>HAVE A GOOD IDEA?</p><h2 className="hero-heading">Let&apos;s make<br />something real.</h2><a className="contact-email" href="mailto:hello@linstudio.ai">hello@linstudio.ai ↗</a><footer><span>LI YI / AIGC DIRECTOR</span><span>© 2026</span><span>CHINA / WORLDWIDE</span></footer></div></section>
+    <section className="contact" id="contact"><div className="contact-inner"><p>HAVE A GOOD IDEA?</p><h2 className="hero-heading">Let&apos;s make<br />something real.</h2><div className="contact-details"><a className="contact-email" href="mailto:hello@linstudio.ai">hello@linstudio.ai ↗</a><span>联系方式 · 后续补充</span><span>合作方式 · 后续补充</span></div><footer><span>LI YI / AIGC DIRECTOR</span><span>© 2026</span><span>CHINA / WORLDWIDE</span></footer></div></section>
   </main>
 }
 
