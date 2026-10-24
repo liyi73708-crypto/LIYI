@@ -53,3 +53,8 @@
 @media(max-width:800px){.contact{padding-top:2vh}.contact footer{margin-top:72px}}
 .services>h2{font-size:clamp(56px,8vw,120px)!important;line-height:.95}
 .services>h2:after{display:none}
+.projects-head h2:after{font-size:clamp(52px,8vw,110px)!important}
+.project-head{grid-template-columns:clamp(72px,8vw,110px) 1fr auto}
+.project-head strong{font-size:clamp(44px,6vw,82px);line-height:.9}
+.project-head h3{font-size:clamp(24px,3vw,46px)}
+@media(max-width:800px){.projects-head h2:after{font-size:clamp(52px,14vw,92px)!important}.project-head{grid-template-columns:64px 1fr}.project-head strong{font-size:54px}.project-head h3{font-size:30px}}
