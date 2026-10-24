@@ -48,3 +48,6 @@
 .contact-inner h2:after{display:none}
 .contact-details .contact-email{display:none}
 @media(max-width:800px){.contact{padding-top:7vh}.contact-inner h2{font-size:12vw!important}}
+.contact{padding-top:0}
+.contact footer{margin-top:110px}
+@media(max-width:800px){.contact{padding-top:2vh}.contact footer{margin-top:72px}}
