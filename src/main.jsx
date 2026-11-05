@@ -104,7 +104,7 @@ function App() {
       <div className="service-list">{services.map(([no, title, copy]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{copy}</p><b>↗</b></article>)}</div>
     </section>
 
-    <section className="contact" id="contact"><div className="contact-inner"><p className="eyebrow"><i />联系我 / 04</p><h2>有想法，<br />一起做成作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">1269930639@qq.com <span>↗</span></a><a href="tel:+8617602810450">176 0281 0450 <span>↗</span></a></div><footer><span>李一 / AIGC 编导与运营</span><span>中国 / 全球合作</span></footer></div></section>
+    <section className="contact" id="contact"><div className="contact-inner"><p className="eyebrow"><i />联系我 / 04</p><h2>有想法，<br />一起做成作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">1269930639@qq.com <span>↗</span></a><a href="tel:+8617602810450">176 0281 0450 <span>↗</span></a></div><footer><span>李一 / AIGC 编导与运营</span></footer></div></section>
   </main>
 }
 
