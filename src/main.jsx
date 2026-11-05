@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
 
@@ -46,7 +46,28 @@ function ContactButton() {
 }
 
 function App() {
-  return <main className="page">
+  const [motionPaused, setMotionPaused] = useState(false)
+
+  useEffect(() => {
+    const targets = document.querySelectorAll('[data-reveal]')
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      targets.forEach(target => target.classList.add('is-visible'))
+      return
+    }
+
+    const page = document.querySelector('.page')
+    page.classList.add('motion-ready')
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible')
+        observer.unobserve(entry.target)
+      }
+    }), { threshold: .12, rootMargin: '0px 0px -36px 0px' })
+    targets.forEach(target => observer.observe(target))
+    return () => observer.disconnect()
+  }, [])
+
+  return <main className={`page${motionPaused ? ' motion-paused' : ''}`}>
     <section className="hero" id="top">
       <video className="hero-video" autoPlay muted loop playsInline src="/hero-bg.mp4" />
       <div className="hero-bg" />
@@ -70,7 +91,7 @@ function App() {
           </a>)}
         </div>
       </div>
-      <div className="hero-bottom"><span>短视频编导 · AIGC 影像</span><a href="#projects">向下滚动，展开作品 <span>↓</span></a></div>
+      <div className="hero-bottom"><span>短视频编导 · AIGC 影像</span><a href="#projects">向下滚动，展开作品 <span>↓</span></a><button className="motion-toggle" type="button" aria-pressed={motionPaused} onClick={() => setMotionPaused(value => !value)}>{motionPaused ? '播放动态预览' : '暂停动态预览'} <span>{motionPaused ? '▶' : 'Ⅱ'}</span></button></div>
     </section>
 
     <section className="projects section-wrap" id="projects">
@@ -78,11 +99,11 @@ function App() {
         <div><p className="eyebrow"><i />作品精选 / 01</p><h2>把内容，做成<br />值得看的作品。</h2></div>
         <p className="section-note">从教育内容编导，到 AI 影像创作。<br />记录想法被看见的过程。</p>
       </div>
-      <article className="resume-project">
+      <article className="resume-project" data-reveal>
         <div className="resume-project-image"><img src="/education-account.png" alt="升学规划抖音账号主页及作品展示" /></div>
         <div className="resume-project-copy"><span className="resume-project-label">短视频编导 / 账号运营</span><h3>升学规划内容账号</h3><p>围绕“政策解读、填报避坑、案例分析、节点提醒”搭建内容栏目，参与选题策划、口播脚本、拍摄剪辑协同及发布复盘，让内容服务于持续搜索与咨询转化。</p><ul><li>积累垂直选题 350+</li><li>单条作品最高收藏 8,000+、分享 5,000+</li><li>项目期间月均有效咨询线索 500+；对应产品月度 GMV 约 17.5 万元</li></ul><a href="https://v.douyin.com/bHsCV-6SsCk/" target="_blank" rel="noreferrer">查看抖音账号 ↗</a><small>以上为简历所述项目数据，按项目成果展示。</small></div>
       </article>
-      <div className="video-portfolio">{videoGroups.map(group => <section className="video-group" key={group.title}>
+      <div className="video-portfolio">{videoGroups.map(group => <section className="video-group" data-reveal key={group.title}>
         <div className="video-group-heading"><h3>{group.title}</h3><span>{group.type === 'portrait' ? '01 — 04' : '05 — 07'}</span></div>
         <div className={`video-grid video-grid--${group.type}`}>{group.items.map(([file, title, type], index) => <article className="video-card" id={`work-${file}`} key={file}>
           <video controls playsInline preload="none" poster={`/videos/${file}.jpg`}><source src={`/videos/${file}.mp4`} type="video/mp4" /></video>
@@ -93,7 +114,7 @@ function App() {
 
     <section className="about section-wrap" id="about">
       <div className="section-heading"><div><p className="eyebrow"><i />关于我 / 02</p><h2>从想法，<br />到内容。</h2></div><p className="section-note">内容不是说出来就结束，<br />而是从理解需求开始。</p></div>
-      <div className="about-profile"><div className="about-photo"><img src="/resume-photo.jpeg" alt="李一照片" /></div><div className="about-copy"><p>我是李一，专注短视频编导与内容运营。本科为电气工程专业，曾在河南载望教育咨询有限公司担任短视频编导（2023.08—2026.03）。</p><p>工作中，我围绕教育政策与升学节点策划选题、撰写口播脚本，并协同拍摄、剪辑、发布和账号维护；也会根据内容数据与用户反馈复盘，持续优化内容表达。</p>
+      <div className="about-profile" data-reveal><div className="about-photo"><img src="/resume-photo.jpeg" alt="李一照片" /></div><div className="about-copy"><p>我是李一，专注短视频编导与内容运营。本科为电气工程专业，曾在河南载望教育咨询有限公司担任短视频编导（2023.08—2026.03）。</p><p>工作中，我围绕教育政策与升学节点策划选题、撰写口播脚本，并协同拍摄、剪辑、发布和账号维护；也会根据内容数据与用户反馈复盘，持续优化内容表达。</p>
         <div className="about-stats"><div><strong>350+</strong><span>垂直选题积累</span></div><div><strong>58</strong><span>单月成片峰值</span></div><div><strong>8,000+</strong><span>单条最高收藏</span></div></div>
         <div className="about-meta"><span>本科 / 电气工程</span><span>电话 / 17602810450</span><span>邮箱 / 1269930639@qq.com</span></div>
       </div></div>
@@ -101,10 +122,10 @@ function App() {
 
     <section className="services section-wrap" id="services">
       <div className="section-heading"><div><p className="eyebrow"><i />工作方式 / 03</p><h2>把每一步，<br />做好。</h2></div><p className="section-note">策划、执行、复盘，<br />让内容持续向前。</p></div>
-      <div className="service-list">{services.map(([no, title, copy]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{copy}</p><b>↗</b></article>)}</div>
+      <div className="service-list" data-reveal>{services.map(([no, title, copy]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{copy}</p><b>↗</b></article>)}</div>
     </section>
 
-    <section className="contact" id="contact"><div className="contact-inner"><p className="eyebrow"><i />联系我 / 04</p><h2>有想法，<br />一起做成作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">1269930639@qq.com <span>↗</span></a><a href="tel:+8617602810450">176 0281 0450 <span>↗</span></a></div><footer><span>李一 / AIGC 编导与运营</span></footer></div></section>
+    <section className="contact" id="contact"><div className="contact-inner" data-reveal><p className="eyebrow"><i />联系我 / 04</p><h2>有想法，<br />一起做成作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">1269930639@qq.com <span>↗</span></a><a href="tel:+8617602810450">176 0281 0450 <span>↗</span></a></div><footer><span>李一 / AIGC 编导与运营</span></footer></div></section>
   </main>
 }
 
