@@ -70,7 +70,7 @@ function App() {
           </a>)}
         </div>
       </div>
-      <div className="hero-bottom"><span>短视频编导 · AIGC 影像</span><a href="#projects">向下滚动，展开作品 <span>↓</span></a><span>中国 / 合作开放</span></div>
+      <div className="hero-bottom"><span>短视频编导 · AIGC 影像</span><a href="#projects">向下滚动，展开作品 <span>↓</span></a></div>
     </section>
 
     <section className="projects section-wrap" id="projects">
