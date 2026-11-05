@@ -1,10 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles.css'
-
-const marqueeImages = [
-  'https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif', 'https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif', 'https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif', 'https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif', 'https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif', 'https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif', 'https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif', 'https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif', 'https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif', 'https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif', 'https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif'
-]
 
 const services = [
   ['01', '内容策划', '围绕用户痛点、行业热点与业务节点，规划适配短视频平台的选题。'],
@@ -17,7 +13,7 @@ const services = [
 const videoGroups = [
   {
     title: '抖音编导作品',
-    className: 'portrait',
+    type: 'portrait',
     items: [
       ['director-01', '中外合作办学选题作品', '升学规划 · 编导发布'],
       ['director-02', '去西安上大学，性价比最高！', '升学规划 · 编导发布'],
@@ -27,7 +23,7 @@ const videoGroups = [
   },
   {
     title: 'AIGC 视频创作',
-    className: 'landscape',
+    type: 'landscape',
     items: [
       ['ai-ad', 'AI 广告创意视频', 'AI 生成 · 广告创意'],
       ['ai-drama-01', 'AI 短剧作品 01', 'AI 生成 · 短剧'],
@@ -36,26 +32,79 @@ const videoGroups = [
   },
 ]
 
-function ContactButton() { return <a className="contact-pill" href="#contact">联系我</a> }
+const heroPreviews = [
+  ['director-01', '合作办学选题', '编导作品'],
+  ['director-02', '去西安上大学', '编导作品'],
+  ['director-03', '军校 / 警校怎么选', '编导作品'],
+  ['ai-ad', 'AI 广告创意', 'AIGC 创作'],
+  ['ai-drama-01', 'AI 短剧 01', 'AIGC 创作'],
+  ['ai-drama-02', 'AI 短剧 02', 'AIGC 创作'],
+]
+
+function ContactButton() {
+  return <a className="contact-pill" href="#contact">联系我 <span>↗</span></a>
+}
 
 function App() {
-  const [heroOffset, setHeroOffset] = useState(0)
-  const marqueeRef = useRef(null)
-  useEffect(() => { const onScroll = () => setHeroOffset(window.scrollY); window.addEventListener('scroll', onScroll, { passive: true }); return () => window.removeEventListener('scroll', onScroll) }, [])
-  const rowOne = [...marqueeImages.slice(0, 6), ...marqueeImages.slice(0, 6), ...marqueeImages.slice(0, 6)]
-  const rowTwo = [...marqueeImages.slice(5), ...marqueeImages.slice(5), ...marqueeImages.slice(5)]
   return <main className="page">
-    <section className="hero" id="top"><video className="hero-video" autoPlay muted loop playsInline src="/hero-bg.mp4" /><div className="hero-bg" /><header className="topbar"><a className="brand" href="#top">LI YI <span>/ AIGC</span></a><nav><a href="#about">关于</a><a href="#services">能力</a><a href="#projects">项目</a><a href="#contact">联系</a></nav><ContactButton /></header><div className="hero-center"><p className="hero-kicker">AIGC 编导 / 内容运营</p><h1 className="hero-heading">你好，我是李一</h1></div><img className="hero-person" src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png" alt="人物占位图" /><div className="hero-bottom"><p>我用创意打造<br />令人难忘的作品。</p><span>向下探索 ↓</span></div></section>
+    <section className="hero" id="top">
+      <video className="hero-video" autoPlay muted loop playsInline src="/hero-bg.mp4" />
+      <div className="hero-bg" />
+      <header className="topbar">
+        <a className="brand" href="#top"><span className="brand-mark">李</span><span>李一 <small>/ AIGC 编导</small></span></a>
+        <nav aria-label="主导航"><a href="#projects">精选作品 ↗</a><a href="#about">关于我</a><a href="#services">我的能力</a></nav>
+        <ContactButton />
+      </header>
+      <div className="hero-content">
+        <div className="hero-copy">
+          <p className="eyebrow"><i />个人作品集 / AIGC 编导与运营</p>
+          <h1>让想法，<br />变成作品。</h1>
+          <p className="hero-summary">我是李一，一名短视频编导与 AIGC 内容运营。<br />从选题、脚本到影像制作，让内容真正走到观众面前。</p>
+          <a className="text-link" href="#projects">观看精选作品 <span>↗</span></a>
+          <p className="hero-services">选题策划　/　脚本创作　/　成片统筹　/　AI 影像</p>
+        </div>
+        <div className="hero-previews" aria-label="代表作品预览">
+          {heroPreviews.map(([file, title, type], index) => <a className={`hero-preview hero-preview--${index + 1}`} href={`#work-${file}`} key={file} aria-label={`查看${title}`}>
+            <img src={`/videos/${file}.jpg`} alt="" />
+            <span className="hero-preview-caption"><small>0{index + 1} / {type}</small><strong>{title}</strong></span>
+          </a>)}
+        </div>
+      </div>
+      <div className="hero-bottom"><span>短视频编导 · AIGC 影像</span><a href="#projects">向下滚动，展开作品 <span>↓</span></a><span>中国 / 合作开放</span></div>
+    </section>
 
-    <section className="marquee" ref={marqueeRef}><div className="marquee-row" style={{ transform: `translateX(${-(heroOffset * .18 % 520)}px)` }}>{rowOne.map((src, i) => <img src={src} alt="" key={`a${i}`} />)}</div><div className="marquee-row reverse" style={{ transform: `translateX(${-(520 - heroOffset * .14 % 520)}px)` }}>{rowTwo.map((src, i) => <img src={src} alt="" key={`b${i}`} />)}</div></section>
+    <section className="projects section-wrap" id="projects">
+      <div className="section-heading">
+        <div><p className="eyebrow"><i />作品精选 / 01</p><h2>把内容，做成<br />值得看的作品。</h2></div>
+        <p className="section-note">从教育内容编导，到 AI 影像创作。<br />记录想法被看见的过程。</p>
+      </div>
+      <article className="resume-project">
+        <div className="resume-project-image"><img src="/education-account.png" alt="升学规划抖音账号主页及作品展示" /></div>
+        <div className="resume-project-copy"><span className="resume-project-label">短视频编导 / 账号运营</span><h3>升学规划内容账号</h3><p>围绕“政策解读、填报避坑、案例分析、节点提醒”搭建内容栏目，参与选题策划、口播脚本、拍摄剪辑协同及发布复盘，让内容服务于持续搜索与咨询转化。</p><ul><li>积累垂直选题 350+</li><li>单条作品最高收藏 8,000+、分享 5,000+</li><li>项目期间月均有效咨询线索 500+；对应产品月度 GMV 约 17.5 万元</li></ul><a href="https://v.douyin.com/bHsCV-6SsCk/" target="_blank" rel="noreferrer">查看抖音账号 ↗</a><small>以上为简历所述项目数据，按项目成果展示。</small></div>
+      </article>
+      <div className="video-portfolio">{videoGroups.map(group => <section className="video-group" key={group.title}>
+        <div className="video-group-heading"><h3>{group.title}</h3><span>{group.type === 'portrait' ? '01 — 04' : '05 — 07'}</span></div>
+        <div className={`video-grid video-grid--${group.type}`}>{group.items.map(([file, title, type], index) => <article className="video-card" id={`work-${file}`} key={file}>
+          <video controls playsInline preload="none" poster={`/videos/${file}.jpg`}><source src={`/videos/${file}.mp4`} type="video/mp4" /></video>
+          <div className="video-card-copy"><span>{type}</span><h4>{title}</h4><small>作品 / {String(index + 1).padStart(2, '0')}</small></div>
+        </article>)}</div>
+      </section>)}</div>
+    </section>
 
-    <section className="about" id="about"><img className="about-deco moon" src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" alt="" /><img className="about-deco lego" src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" alt="" /><div className="about-inner"><h2 className="hero-heading">关于我</h2><div className="about-profile"><div className="about-photo"><img src="/resume-photo.jpeg" alt="李一照片" /></div><div className="about-copy"><p>我是李一，专注短视频编导与内容运营。本科为电气工程专业，曾在河南载望教育咨询有限公司担任短视频编导（2023.08—2026.03）。<br /><br />工作中，我围绕教育政策与升学节点策划选题、撰写口播脚本，并协同拍摄、剪辑、发布和账号维护；也会根据内容数据与用户反馈复盘，持续优化内容表达。</p><div className="about-stats"><div><strong>350+</strong><span>垂直选题积累</span></div><div><strong>58</strong><span>单月成片峰值</span></div><div><strong>8,000+</strong><span>单条最高收藏</span></div></div><div className="about-meta"><span>本科 · 电气工程</span><span>电话 · 17602810450</span><span>邮箱 · 1269930639@qq.com</span></div></div></div><ContactButton /></div></section>
+    <section className="about section-wrap" id="about">
+      <div className="section-heading"><div><p className="eyebrow"><i />关于我 / 02</p><h2>从想法，<br />到内容。</h2></div><p className="section-note">内容不是说出来就结束，<br />而是从理解需求开始。</p></div>
+      <div className="about-profile"><div className="about-photo"><img src="/resume-photo.jpeg" alt="李一照片" /></div><div className="about-copy"><p>我是李一，专注短视频编导与内容运营。本科为电气工程专业，曾在河南载望教育咨询有限公司担任短视频编导（2023.08—2026.03）。</p><p>工作中，我围绕教育政策与升学节点策划选题、撰写口播脚本，并协同拍摄、剪辑、发布和账号维护；也会根据内容数据与用户反馈复盘，持续优化内容表达。</p>
+        <div className="about-stats"><div><strong>350+</strong><span>垂直选题积累</span></div><div><strong>58</strong><span>单月成片峰值</span></div><div><strong>8,000+</strong><span>单条最高收藏</span></div></div>
+        <div className="about-meta"><span>本科 / 电气工程</span><span>电话 / 17602810450</span><span>邮箱 / 1269930639@qq.com</span></div>
+      </div></div>
+    </section>
 
-    <section className="services" id="services"><h2>我的能力</h2><div className="service-list">{services.map(([no, title, copy]) => <article key={no}><strong>{no}</strong><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></section>
+    <section className="services section-wrap" id="services">
+      <div className="section-heading"><div><p className="eyebrow"><i />工作方式 / 03</p><h2>把每一步，<br />做好。</h2></div><p className="section-note">策划、执行、复盘，<br />让内容持续向前。</p></div>
+      <div className="service-list">{services.map(([no, title, copy]) => <article key={no}><span>{no}</span><h3>{title}</h3><p>{copy}</p><b>↗</b></article>)}</div>
+    </section>
 
-    <section className="projects" id="projects"><div className="projects-head"><h2 className="hero-heading">精选项目</h2><p>视频作品<br />编导作品与 AI 创作</p></div><div className="resume-project"><div className="resume-project-image"><img src="/education-account.png" alt="升学规划抖音账号主页及作品展示" /></div><div className="resume-project-copy"><span className="resume-project-label">短视频编导 / 账号运营</span><h3>升学规划内容账号</h3><p>围绕“政策解读、填报避坑、案例分析、节点提醒”搭建内容栏目，参与选题策划、口播脚本、拍摄剪辑协同及发布复盘，让内容服务于持续搜索与咨询转化。</p><ul><li>积累垂直选题 350+</li><li>单条作品最高收藏 8,000+、分享 5,000+</li><li>项目期间月均有效咨询线索 500+；对应产品月度 GMV 约 17.5 万元</li></ul><a href="https://v.douyin.com/bHsCV-6SsCk/" target="_blank" rel="noreferrer">查看抖音账号 ↗</a><small>以上为简历所述项目数据，按项目成果展示。</small></div></div><div className="video-portfolio">{videoGroups.map(group => <section className="video-group" key={group.title}><h3>{group.title}</h3><div className={`video-grid video-grid--${group.className}`}>{group.items.map(([file, title, type]) => <article className="video-card" key={file}><video controls playsInline preload="none" poster={`/videos/${file}.jpg`}><source src={`/videos/${file}.mp4`} type="video/mp4" /></video><div className="video-card-copy"><span>{type}</span><h4>{title}</h4></div></article>)}</div></section>)}</div></section>
-
-    <section className="contact" id="contact"><div className="contact-inner"><p>有一个好想法？</p><h2 className="hero-heading">一起做点<br />真正的作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">邮箱 · 1269930639@qq.com</a><a href="tel:+8617602810450">电话 · 17602810450</a><span>合作方向 · 短视频编导 / 内容运营</span></div><footer><span>李一 / AIGC 编导</span><span>© 2026</span><span>中国 / 全球合作</span></footer></div></section>
+    <section className="contact" id="contact"><div className="contact-inner"><p className="eyebrow"><i />联系我 / 04</p><h2>有想法，<br />一起做成作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">1269930639@qq.com <span>↗</span></a><a href="tel:+8617602810450">176 0281 0450 <span>↗</span></a></div><footer><span>李一 / AIGC 编导与运营</span><span>中国 / 全球合作</span></footer></div></section>
   </main>
 }
 
