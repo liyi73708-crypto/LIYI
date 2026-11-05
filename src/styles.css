@@ -52,6 +52,24 @@
 .resume-project-copy small{color:var(--muted);font-size:11px;margin-top:16px;line-height:1.5}
 .contact-details a{color:inherit}
 @media(max-width:800px){.about-stats{grid-template-columns:1fr;gap:8px}.about-stats div{padding:12px 14px}.resume-project{grid-template-columns:1fr;padding:18px;border-radius:24px}.resume-project-copy p,.resume-project-copy li{font-size:14px}}
+.projects-head p{font-size:16px!important;color:var(--muted);line-height:1.5}
+.projects-head p:after{display:none}
+.video-portfolio{max-width:1500px;margin:96px auto 0}
+.video-group+.video-group{margin-top:76px}
+.video-group>h3{font-size:clamp(24px,3vw,38px);font-weight:500;margin:0 0 24px}
+.video-grid{display:grid;gap:18px;align-items:start}
+.video-grid--portrait{grid-template-columns:repeat(4,minmax(0,1fr))}
+.video-grid--landscape{grid-template-columns:repeat(3,minmax(0,1fr))}
+.video-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#111416}
+.video-card video{display:block;width:100%;background:#050607;object-fit:contain}
+.video-grid--portrait video{aspect-ratio:9/16}
+.video-grid--landscape video{aspect-ratio:16/9}
+.video-card-copy{padding:16px 18px 18px}
+.video-card-copy span{font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.video-card-copy h4{font-size:16px;font-weight:500;line-height:1.45;margin:8px 0 0}
+@media(max-width:1000px){.video-grid--portrait{grid-template-columns:repeat(2,minmax(0,1fr))}.video-grid--landscape{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:800px){.video-portfolio{margin-top:68px}.video-group+.video-group{margin-top:56px}.video-grid{gap:12px}.video-card{border-radius:16px}.video-card-copy{padding:12px}.video-card-copy h4{font-size:14px}}
+@media(max-width:520px){.video-grid--portrait,.video-grid--landscape{grid-template-columns:1fr}}
 .contact{align-items:flex-start;padding-top:13vh}
 .contact-inner h2{font-size:clamp(48px,7vw,112px);line-height:1;max-width:900px;margin:18px 0 38px}
 .contact-details{display:flex;align-items:center;gap:28px;flex-wrap:wrap;min-height:90px;color:var(--muted);font-size:13px;letter-spacing:.08em}

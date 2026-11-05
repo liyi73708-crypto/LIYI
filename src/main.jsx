@@ -14,6 +14,28 @@ const services = [
   ['05', '数据复盘', '跟踪互动、收藏、分享与咨询反馈，持续优化开头、标题、封面和内容方向。'],
 ]
 
+const videoGroups = [
+  {
+    title: '抖音编导作品',
+    className: 'portrait',
+    items: [
+      ['director-01', '中外合作办学选题作品', '升学规划 · 编导发布'],
+      ['director-02', '去西安上大学，性价比最高！', '升学规划 · 编导发布'],
+      ['director-03', '军校 / 警校有什么区别？怎么选？', '升学规划 · 编导发布'],
+      ['director-04', '浙江大学：超级巨无霸学校', '升学规划 · 编导发布'],
+    ],
+  },
+  {
+    title: 'AIGC 视频创作',
+    className: 'landscape',
+    items: [
+      ['ai-ad', 'AI 广告创意视频', 'AI 生成 · 广告创意'],
+      ['ai-drama-01', 'AI 短剧作品 01', 'AI 生成 · 短剧'],
+      ['ai-drama-02', 'AI 短剧作品 02', 'AI 生成 · 短剧'],
+    ],
+  },
+]
+
 function ContactButton() { return <a className="contact-pill" href="#contact">联系我</a> }
 
 function App() {
@@ -31,7 +53,7 @@ function App() {
 
     <section className="services" id="services"><h2>我的能力</h2><div className="service-list">{services.map(([no, title, copy]) => <article key={no}><strong>{no}</strong><div><h3>{title}</h3><p>{copy}</p></div></article>)}</div></section>
 
-    <section className="projects" id="projects"><div className="projects-head"><h2 className="hero-heading">精选项目</h2><p>升学规划账号<br />短视频内容运营案例</p></div><div className="resume-project"><div className="resume-project-image"><img src="/education-account.png" alt="升学规划抖音账号主页及作品展示" /></div><div className="resume-project-copy"><span className="resume-project-label">短视频编导 / 账号运营</span><h3>升学规划内容账号</h3><p>围绕“政策解读、填报避坑、案例分析、节点提醒”搭建内容栏目，参与选题策划、口播脚本、拍摄剪辑协同及发布复盘，让内容服务于持续搜索与咨询转化。</p><ul><li>积累垂直选题 350+</li><li>单条作品最高收藏 8,000+、分享 5,000+</li><li>项目期间月均有效咨询线索 500+；对应产品月度 GMV 约 17.5 万元</li></ul><a href="https://v.douyin.com/bHsCV-6SsCk/" target="_blank" rel="noreferrer">查看抖音账号 ↗</a><small>以上为简历所述项目数据，按项目成果展示。</small></div></div></section>
+    <section className="projects" id="projects"><div className="projects-head"><h2 className="hero-heading">精选项目</h2><p>视频作品<br />编导作品与 AI 创作</p></div><div className="resume-project"><div className="resume-project-image"><img src="/education-account.png" alt="升学规划抖音账号主页及作品展示" /></div><div className="resume-project-copy"><span className="resume-project-label">短视频编导 / 账号运营</span><h3>升学规划内容账号</h3><p>围绕“政策解读、填报避坑、案例分析、节点提醒”搭建内容栏目，参与选题策划、口播脚本、拍摄剪辑协同及发布复盘，让内容服务于持续搜索与咨询转化。</p><ul><li>积累垂直选题 350+</li><li>单条作品最高收藏 8,000+、分享 5,000+</li><li>项目期间月均有效咨询线索 500+；对应产品月度 GMV 约 17.5 万元</li></ul><a href="https://v.douyin.com/bHsCV-6SsCk/" target="_blank" rel="noreferrer">查看抖音账号 ↗</a><small>以上为简历所述项目数据，按项目成果展示。</small></div></div><div className="video-portfolio">{videoGroups.map(group => <section className="video-group" key={group.title}><h3>{group.title}</h3><div className={`video-grid video-grid--${group.className}`}>{group.items.map(([file, title, type]) => <article className="video-card" key={file}><video controls playsInline preload="none" poster={`/videos/${file}.jpg`}><source src={`/videos/${file}.mp4`} type="video/mp4" /></video><div className="video-card-copy"><span>{type}</span><h4>{title}</h4></div></article>)}</div></section>)}</div></section>
 
     <section className="contact" id="contact"><div className="contact-inner"><p>有一个好想法？</p><h2 className="hero-heading">一起做点<br />真正的作品。</h2><div className="contact-details"><a href="mailto:1269930639@qq.com">邮箱 · 1269930639@qq.com</a><a href="tel:+8617602810450">电话 · 17602810450</a><span>合作方向 · 短视频编导 / 内容运营</span></div><footer><span>李一 / AIGC 编导</span><span>© 2026</span><span>中国 / 全球合作</span></footer></div></section>
   </main>
